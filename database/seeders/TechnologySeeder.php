@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Technology;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,5 +23,12 @@ class TechnologySeeder extends Seeder
             ['label' => 'Laravel', 'color' => 'danger'],
             ['label' => 'VueJS', 'color' => 'success'],
         ];
+
+        foreach ($tecnologies as $tecnology) {
+            $new_tecnology = new Technology();
+            $new_tecnology->label = $tecnology['label'];
+            $new_tecnology->color = $tecnology['color'];
+            $new_tecnology->save();
+        }
     }
 }
